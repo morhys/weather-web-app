@@ -1,41 +1,21 @@
 define([
-	'app/views/app'
-], function(AppView){
+	'app/views/app',
+	'app/routers/router'
+], function(AppView, Router){
 
 	'use strict';
 
 	var initialize = function(){
+
 		var appView = new AppView();
 		$('body').append(appView.el);
-		//$('body').append(appView.render().el);
+
+		// create a new instance of the Router passing in the main app view
+		var router = new Router(appView);
+		// initialize monitoring of the url links that need to be converted into actions
+		Backbone.history.start();
+
 	}
-
-	// var initialize = function(){
-	// 	$('body').append('<div id="' + id + '"></div>');
-	// }
-
-	// var id = "content";
-
-	// var getId = function(){
-	// 	return id;
-	// }
-
-	// var getTimeString = function(){
-	// 	var date = new Date();
-	// 	return [date.getHours(), ':', date.getMinutes()].join('');
-	// };
-
-	// var displayTime = function(){
-	// 	var html = [
-	// 		'<div class="alert alert-warning">',
-	// 			'<button type="button" class="close" data-dismiss="alert">&times;</button>',
-	// 			'The time is: ',
-	// 			getTimeString(),
-	// 		'</div>'
-	// 	].join('');
-	// 	$('#' + id).html(html);
-	// };
-
 
 	return {
 		initialize : initialize

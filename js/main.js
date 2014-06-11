@@ -35,7 +35,6 @@ require([
 ], function(Backbone, App){
 	'use strict';
 
-	console.log(Backbone);
 	console.log(App);
 
 	App.initialize();
